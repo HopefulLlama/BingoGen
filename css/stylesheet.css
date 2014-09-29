@@ -1,0 +1,20 @@
+.centerAlignText {
+	text-align: center;
+}
+
+.unclickable {
+	text-decoration: line-through;
+}
+
+.clickable {
+	cursor: pointer; 
+	cursor: hand;
+}
+
+table {
+	width: 100%;
+}
+table td {
+	width: 20%;
+	height: 50px;
+}

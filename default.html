@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='utf-8' />
+	<title>BingoGen</title>
+    <link rel="icon" 
+      type="image/png" 
+      href="assets/img/favicon.png">
+    <script type="text/javascript" src="lib/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+ 
+    <script type="text/javascript" src="js/controller.js"></script>    
+
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap-3.2.0-dist/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+</head>
+
+<body id="body">
+
+    <!-- settings-modal -->
+    <div id="settings-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="settings-modal-label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-info">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="settings-modal-label">Settings</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Content Settings</div>
+                        <div class="panel-body">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label for="inputTitle" class="col-sm-2 control-label">Bingo Title</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputTitle" value="Stand Up" /> 
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputContent" class="col-sm-2 control-label">Content</label>
+                                    <div class="col-sm-10">
+                                        <textarea Size="2" columns="50" class="form-control" id="inputContent"> "In any Case/Event",Everyone is present,Someone is absert,Issue is debated for more than 10 minutes,Stand Up takes longer than 30 minutes,Someone is sat down,Everyone is stood up,Technical Failure,'Do you wanna kick off?','Do you wanna drop out?',Mantis number is read out,Mantis issue priority is disputed,Stand Up takes between 15 and 30 minutes,Someone's phone goes off,Someone is lying down,Someone is drinking,No-one is drinking,Someone laughs at non-stand up content,Someone is spoken who isn't there,Stand up takes less 15 minutes,An agreement about an issue is reached,Someone is spinning on their chair,Someone mentions a product name,Someone mentions a customer</textarea>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="panel-heading">Free Space Settings</div>
+                        <div class="panel-body">
+                            <form class="form-horizontal" role="form">
+                                <div class="checkbox">
+                                    <label>
+                                        <input id="inputFreeSpaceBoolean" type="checkbox" value="" checked="checked"> Include Free Space?
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputFreeSpaceName" class="col-sm-2 control-label">Free Space Name</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputFreeSpaceName" value="Daily Stand Up" /> 
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="panel-heading">Size Settings</div>
+                        <div class="panel-body">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label for="inputSize" class="col-sm-2 control-label">Size</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputSize" value="3" /> 
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="confirm-settings-button" class="btn btn-info left" data-dismiss="modal">Generate</button>
+                    <button type="button" class="btn btn-default right" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="./about">BingoGen</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right" role="banner">
+                        <li><a href="" data-toggle="modal" data-target="#settings-modal">Settings</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </div>
+    </nav>
+
+    <div id="content" class="centerAlignText container">
+        <h1 id="cardTitle"></h1>
+        <div id="table" class="centerAlignText">
+        </div>
+    </div>
+</body>
+</html>
