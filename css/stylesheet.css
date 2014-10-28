@@ -11,6 +11,10 @@
 	cursor: hand;
 }
 
+.clickable:hover {
+	background-color: #DDDDDD;
+}
+
 table {
 	width: 100%;
 }
