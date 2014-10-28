@@ -6,7 +6,7 @@ function bindInitialFunctions() {
 function bindBingoCellFunctions(){
 	$(".clickable").click(function (event){
 		toggleBingoCellState($(this));
-		findCompletedLines();
+		updateStats(bingoCard.id, bingoCard.size);
 	});
 }
 

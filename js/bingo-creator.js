@@ -1,4 +1,5 @@
 var bingoCard = {};
+bingoCard.id = "bingoCard";
 function generateBingoCard(){
 	bingoCard.title = $("#inputTitle").val();
 	bingoCard.input = $("#inputContent").html().split(",");
@@ -34,7 +35,7 @@ function generateBingoCard(){
 	$("#cardTitle").html(bingoCard.title);
 
 	bindBingoCellFunctions();
-	findPossibleLines(bingoCard.size)
+	findPossibleLines("bingoCard", bingoCard.size);
 }
 
 function shuffle(array) {
