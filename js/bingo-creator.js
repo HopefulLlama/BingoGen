@@ -1,42 +1,40 @@
+var bingoCard = {};
 function generateBingoCard(){
+	bingoCard.title = $("#inputTitle").val();
+	bingoCard.input = $("#inputContent").html().split(",");
+	bingoCard.size = parseInt($("#inputSize").val());
+	bingoCard.freeSpaceBoolean = $("#inputFreeSpaceBoolean").prop("checked");
+	bingoCard.freeSpaceName = $("#inputFreeSpaceName").val();
+	bingoCard.freeSpaceIndex = Math.floor(Math.pow(bingoCard.size, 2)/2);
+
+	shuffle(bingoCard.input);
 	var html = "";
-
-	var input = $("#inputContent").html().split(",");
-	shuffle(input);
-
-	var freeSpace = null;
-	if ($("#inputFreeSpaceBoolean").prop("checked") === true){
-		freeSpace = $("#inputFreeSpaceName").val();
-	}
-	var size = parseInt($("#inputSize").val());
-	if (freeSpace !== null) {
-		var freeSpaceIndex = Math.floor(Math.pow(size, 2)/2);
-		input.splice(freeSpaceIndex, 0, freeSpace)
-	}
 	var counter = 0;
 
-	html += '<table class="table table-bordered">';
-	for (var i = 0; i < size; i++) {
+	html += '<table id="bingoCard" class="table table-bordered">';
+	for (var i = 0; i < bingoCard.size; i++) {
 		html += '<tr>';
-		for (var j = 0; j < size; j++) {
-			if (counter === freeSpaceIndex) {
-				html += '<td class="unclickable">';
-		  		html += input[counter];
+		for (var j = 0; j < bingoCard.size; j++) {
+			if (counter === bingoCard.freeSpaceIndex) {
+				html += '<td class="bingoCell unclickable">';
+		  		html += bingoCard.input[counter];
 				html += '<br /> <b>FREE SPACE<b/>';
 			} else {
-			html += '<td class="clickable">';
-			html += input[counter];
+			html += '<td class="bingoCell clickable">';
+			html += bingoCard.input[counter];
 			}
 			html += '</td>';
 			counter++;
 		}
-		html += '<tr>';
+		html += '</tr>';
 	}
 	html += '</table';
 
 	$("#table").html(html);
-	$("#cardTitle").html($("#inputTitle").val());
+	$("#cardTitle").html(bingoCard.title);
+
 	bindBingoCellFunctions();
+	findPossibleLines(bingoCard.size)
 }
 
 function shuffle(array) {
