@@ -1,5 +1,5 @@
 function bindInitialFunctions() {
-	$("#confirm-settings-button").click(generateBingoCard);
+	$(".generateBingoCard").click(generateBingoCard);
 	bindBingoCellFunctions();
 }
 
