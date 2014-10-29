@@ -5,7 +5,7 @@ $(window).load(function (e) {
 
 function createBingoCard() {
 	settings.title = $("#inputTitle").val();
-	settings.input = $("#inputContent").html().split(",");
+	settings.input = $("#inputContent").val().split(",");
 	settings.size = parseInt($("#inputSize").val());
 	settings.freeSpaceBoolean = $("#inputFreeSpaceBoolean").prop("checked");
 	settings.freeSpaceName = $("#inputFreeSpaceName").val();

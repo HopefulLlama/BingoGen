@@ -6,6 +6,7 @@
     <link rel="icon" 
       type="image/png" 
       href="assets/img/favicon.png">
+    <script type="text/javascript" src="lib/lz-string-1.3.3-min.js"></script>
     <script type="text/javascript" src="lib/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="lib/bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
  
@@ -48,7 +49,7 @@
                                 <div class="form-group">
                                     <label for="inputContent" class="col-sm-2 control-label">Content</label>
                                     <div class="col-sm-10">
-                                        <textarea Size="2" columns="50" class="form-control" id="inputContent"> "In any Case/Event",Everyone is present,Someone is absert,Issue is debated for more than 10 minutes,Stand Up takes longer than 30 minutes,Someone is sat down,Everyone is stood up,Technical Failure,'Do you wanna kick off?','Do you wanna drop out?',Mantis number is read out,Mantis issue priority is disputed,Stand Up takes between 15 and 30 minutes,Someone's phone goes off,Someone is lying down,Someone is drinking,No-one is drinking,Someone laughs at non-stand up content,Someone is spoken who isn't there,Stand up takes less 15 minutes,An agreement about an issue is reached,Someone is spinning on their chair,Someone mentions a product name,Someone mentions a customer</textarea>
+                                        <textarea rows="4" columns="50" class="form-control" id="inputContent"> "In any Case/Event",Everyone is present,Someone is absert,Issue is debated for more than 10 minutes,Stand Up takes longer than 30 minutes,Someone is sat down,Everyone is stood up,Technical Failure,'Do you wanna kick off?','Do you wanna drop out?',Mantis number is read out,Mantis issue priority is disputed,Stand Up takes between 15 and 30 minutes,Someone's phone goes off,Someone is lying down,Someone is drinking,No-one is drinking,Someone laughs at non-stand up content,Someone is spoken who isn't there,Stand up takes less 15 minutes,An agreement about an issue is reached,Someone is spinning on their chair,Someone mentions a product name,Someone mentions a customer</textarea>
                                     </div>
                                 </div>
                             </form>
@@ -64,7 +65,7 @@
                                 </div>
                                 <b>Note: </b> Free space only applies to Bingo Cards with an odd size.
                                 <div class="form-group">
-                                    <label for="inputFreeSpaceName" class="col-sm-2 control-label">Free Space Name</label>
+                                    <label for="inputFreeSpaceName" class="col-sm-2 control-label">Text</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="inputFreeSpaceName" value="FREE SPACE" /> 
                                     </div>
@@ -83,6 +84,7 @@
                                 </div>
                             </form>
                         </div>
+                        <br class="clear" />
 
                     </div>
                 </div>
@@ -94,6 +96,32 @@
         </div>
     </div>
 
+    <!-- export-modal -->
+    <div id="export-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="export-modal-label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-info">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="export-modal-label">Export</h4>
+                </div>
+                <div class="modal-body">
+                    <p>The text below contains your settings; you may store this elsewhere, or to send to a friend so that you may play a game of Bingo using the same settings. Please note that this only exports the settings, not the actual Bingo card itself. Even using the same settings, you may get a different card!</p>
+
+                    <div class="form-group clearfix">
+                        <label for="inputExport" class="col-sm-2 control-label">Export String:</label>
+                        <div class="col-sm-10">
+                            <textarea rows="8" columns="50" class="form-control" id="inputExport"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default right" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- navigation bar -->
     <nav class="navbar navbar-default" role="navigation">
         <div class="container">
             <div class="container-fluid">
@@ -113,6 +141,7 @@
                     <ul class="nav navbar-nav navbar-right" role="banner">
                         <li><a href="#" class="generateBingoCard">Re-generate</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#settings-modal">Settings</a></li>
+                        <li><a id="export-nav-item" href="#" data-toggle="modal" data-target="#export-modal">Export</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->

@@ -1,6 +1,10 @@
 function bindInitialFunctions() {
 	$(".generateBingoCard").click(createBingoCard);
 	bindBingoCellFunctions();
+
+	$("#export-nav-item").click(function (event){
+		$("#inputExport").val(settings.exportString());
+	})
 }
 
 function bindBingoCellFunctions() {
