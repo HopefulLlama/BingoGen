@@ -9,6 +9,7 @@
     <script type="text/javascript" src="lib/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="lib/bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
  
+    <script type="text/javascript" src="js/settings.js"></script> 
     <script type="text/javascript" src="js/stat-handler.js"></script> 
     <script type="text/javascript" src="js/ui-handler.js"></script> 
     <script type="text/javascript" src="js/bingo-creator.js"></script>
@@ -121,6 +122,25 @@
         <h1 id="cardTitle"></h1>
         <div id="table" class="centerAlignText">
         </div>
+        <div class="panel panel-default">
+            <div id="stat-heading" class="panel-heading"><b>Statistics</b></div>
+            <div id="stat-body" class="panel-body">
+                <div class="progress">
+                    <div id="completion-bar" class="progress-bar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="10000" style="width: 0%;">
+                        0%
+                    </div>
+                </div>
+                <dl class="dl-horizontal">
+                    <dt>Cells</dt>
+                    <dd id="cells-stats" class="pull-left"></dd>
+                    <dt>Lines</dt>
+                    <dd id="lines-stats" class="pull-left"></dd>
+                    <dt>Full House?</dt>
+                    <dd id="full-house-stats" class="pull-left"></dd>
+                </dl>
+            </div>
+        </div>
     </div>
+
 </body>
 </html>
