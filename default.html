@@ -121,6 +121,32 @@
         </div>
     </div>
 
+    <!-- import-modal -->
+    <div id="import-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="import-modal-label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-info">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="import-modal-label">Import</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Enter the string obtained from an import to generate settings and a Bingo card.</p>
+
+                    <div class="form-group clearfix">
+                        <label for="inputImport" class="col-sm-2 control-label">Import String:</label>
+                        <div class="col-sm-10">
+                            <textarea rows="8" columns="50" class="form-control" id="inputImport"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="import-bingo-card" type="button" class="btn btn-info left" data-dismiss="modal">Generate</button>
+                    <button type="button" class="btn btn-default right" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- navigation bar -->
     <nav class="navbar navbar-default" role="navigation">
         <div class="container">
@@ -142,6 +168,7 @@
                         <li><a href="#" class="generateBingoCard">Re-generate</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#settings-modal">Settings</a></li>
                         <li><a id="export-nav-item" href="#" data-toggle="modal" data-target="#export-modal">Export</a></li>
+                        <li><a id="import-nav-item" href="#" data-toggle="modal" data-target="#import-modal">Import</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->

@@ -4,7 +4,11 @@ function bindInitialFunctions() {
 
 	$("#export-nav-item").click(function (event){
 		$("#inputExport").val(settings.exportString());
-	})
+	});
+
+	$("#import-bingo-card").click(function (event){
+		importBingoCard($("#inputImport").val());
+	});
 }
 
 function bindBingoCellFunctions() {

@@ -15,6 +15,14 @@ function createBingoCard() {
 	updateAndPublishStats(settings, stats);
 }
 
+function importBingoCard(string) {
+	var importString = LZString.decompressFromBase64(string);
+	settings = JSON.parse(importString);
+
+	generateBingoCard();
+	updateAndPublishStats(settings, stats);	
+}
+
 function updateAndPublishStats(settings) {
 	stats.update(settings.id, settings.size);
 	publishStats(settings, stats);
