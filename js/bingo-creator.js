@@ -7,13 +7,13 @@ function generateBingoCard(){
 	for (var i = 0; i < settings.size; i++) {
 		html += '<tr>';
 		for (var j = 0; j < settings.size; j++) {
-			if (counter === settings.freeSpaceIndex) {
+			if (counter === settings.freeSpaceIndex && settings.freeSpaceBoolean && settings.size % 2 == 1) {
 				html += '<td class="bingoCell unclickable">';
 		  		html += settings.input[counter];
-				html += '<br /> <b>FREE SPACE<b/>';
+				html += '<br /> <b>' + settings.freeSpaceName + '<b/>';
 			} else {
-			html += '<td class="bingoCell clickable">';
-			html += settings.input[counter];
+				html += '<td class="bingoCell clickable">';
+				html += settings.input[counter];
 			}
 			html += '</td>';
 			counter++;
