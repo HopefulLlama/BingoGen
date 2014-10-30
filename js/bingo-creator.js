@@ -1,22 +1,33 @@
 function generateBingoCard(){
 	shuffle(settings.properties.input);
 	var html = "";
-	var counter = 0;
+	var cellcounter = 0;
+	var undefinedCellCounter = 0;
 
 	html += '<table id="'+settings.properties.id+'" class="table table-bordered">';
 	for (var i = 0; i < settings.properties.size; i++) {
 		html += '<tr>';
 		for (var j = 0; j < settings.properties.size; j++) {
-			if (counter === settings.properties.freeSpaceIndex && settings.properties.freeSpaceBoolean && settings.properties.size % 2 == 1) {
+			if (cellcounter === settings.properties.freeSpaceIndex && settings.properties.freeSpaceBoolean && settings.properties.size % 2 == 1) {
 				html += '<td class="bingoCell unclickable">';
-		  		html += settings.properties.input[counter];
+		  		if (settings.properties.input[cellcounter] !== undefined) {
+		  			html += settings.properties.input[cellcounter];
+		  		} else {
+		  			html += "Undefined Cell #"+undefinedCellCounter;
+		  			undefinedCellCounter++;
+		  		}
 				html += '<br /> <b>' + settings.properties.freeSpaceName + '<b/>';
 			} else {
 				html += '<td class="bingoCell clickable">';
-				html += settings.properties.input[counter];
+				if (settings.properties.input[cellcounter] !== undefined) {
+		  			html += settings.properties.input[cellcounter];
+		  		} else {
+		  			html += "Undefined Cell #"+undefinedCellCounter;
+		  			undefinedCellCounter++;
+		  		}
 			}
 			html += '</td>';
-			counter++;
+			cellcounter++;
 		}
 		html += '</tr>';
 	}
