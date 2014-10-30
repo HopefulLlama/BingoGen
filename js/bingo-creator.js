@@ -1,19 +1,19 @@
 function generateBingoCard(){
-	shuffle(settings.input);
+	shuffle(settings.properties.input);
 	var html = "";
 	var counter = 0;
 
-	html += '<table id="'+settings.id+'" class="table table-bordered">';
-	for (var i = 0; i < settings.size; i++) {
+	html += '<table id="'+settings.properties.id+'" class="table table-bordered">';
+	for (var i = 0; i < settings.properties.size; i++) {
 		html += '<tr>';
-		for (var j = 0; j < settings.size; j++) {
-			if (counter === settings.freeSpaceIndex && settings.freeSpaceBoolean && settings.size % 2 == 1) {
+		for (var j = 0; j < settings.properties.size; j++) {
+			if (counter === settings.properties.freeSpaceIndex && settings.properties.freeSpaceBoolean && settings.properties.size % 2 == 1) {
 				html += '<td class="bingoCell unclickable">';
-		  		html += settings.input[counter];
-				html += '<br /> <b>' + settings.freeSpaceName + '<b/>';
+		  		html += settings.properties.input[counter];
+				html += '<br /> <b>' + settings.properties.freeSpaceName + '<b/>';
 			} else {
 				html += '<td class="bingoCell clickable">';
-				html += settings.input[counter];
+				html += settings.properties.input[counter];
 			}
 			html += '</td>';
 			counter++;
@@ -23,10 +23,10 @@ function generateBingoCard(){
 	html += '</table';
 
 	$("#table").html(html);
-	$("#cardTitle").html(settings.title);
+	$("#cardTitle").html(settings.properties.title);
 
 	bindBingoCellFunctions();
-	stats.findPossibleLines(settings.id, settings.size);
+	stats.findPossibleLines(settings.properties.id, settings.properties.size);
 }
 
 function shuffle(array) {

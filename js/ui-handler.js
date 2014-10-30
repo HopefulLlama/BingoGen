@@ -1,4 +1,6 @@
 function bindInitialFunctions() {
+	$("#alert-div").bs3Alert();
+
 	$(".generateBingoCard").click(createBingoCard);
 	bindBingoCellFunctions();
 
@@ -28,15 +30,15 @@ function toggleBingoCellState(cell) {
 
 function publishStats(settings, stats) {
 	var progress = 0;
-	if (settings.size > 0 ) {
-		progress = ((stats.checkedCells / Math.pow(settings.size, 2)) * 100).toFixed(2);
+	if (settings.properties.size > 0 ) {
+		progress = ((stats.checkedCells / Math.pow(settings.properties.size, 2)) * 100).toFixed(2);
 	}
 
 	$("#completion-bar").attr("aria-valuenow", progress*100);
 	$("#completion-bar").css("width", progress+"%");
 	$("#completion-bar").html(progress+"%");
 
-	$("#cells-stats").html(stats.checkedCells + "/" + Math.pow(settings.size, 2));
+	$("#cells-stats").html(stats.checkedCells + "/" + Math.pow(settings.properties.size, 2));
 	$("#lines-stats").html(stats.completedLines + "/" + stats.possibleLines.length);
 	
 	if(stats.isFullHouse()) {
