@@ -10,11 +10,21 @@ function generateBingoCard(){
 		for (var j = 0; j < settings.properties.size; j++) {
 			if (cellcounter === settings.properties.freeSpaceIndex && settings.properties.freeSpaceBoolean && settings.properties.size % 2 == 1) {
 				html += '<td class="bingoCell unclickable">';
-		  		createCell();
+		  		if (settings.properties.input[cellcounter] !== undefined) {
+		  			html += settings.properties.input[cellcounter];
+		  		} else {
+		  			html += "Undefined Cell #"+undefinedCellCounter;
+		  			undefinedCellCounter++;
+		  		}
 				html += '<br /> <b>' + settings.properties.freeSpaceName + '<b/>';
 			} else {
 				html += '<td class="bingoCell clickable">';
-				createCell();
+				if (settings.properties.input[cellcounter] !== undefined) {
+		  			html += settings.properties.input[cellcounter];
+		  		} else {
+		  			html += "Undefined Cell #"+undefinedCellCounter;
+		  			undefinedCellCounter++;
+		  		}
 			}
 			html += '</td>';
 			cellcounter++;
@@ -46,12 +56,4 @@ function shuffle(array) {
 		array[randomIndex] = temporaryValue;
 	}
 	return array;
-}
-
-function createCell(){
-	if (settings.properties.input[cellcounter] !== undefined) {
-		html += settings.properties.input[cellcounter];
-	} else {
-		html += "Undefined Cell #"+undefinedCellCounter;
-	}
 }
