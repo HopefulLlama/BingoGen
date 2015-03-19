@@ -1,4 +1,5 @@
 $(window).load(function (e) {
+	settings.properties.multiBox.generate();
 	bindInitialFunctions();
 	createBingoCard();
 });
@@ -38,7 +39,6 @@ function updateAndPublishStats(settings) {
 
 function syncSettingsWithUIForm(settings) {
 	settings.properties.title = $("#inputTitle").val();
-	settings.properties.input = $("#inputContent").val().split(",");
 	settings.properties.size = parseInt($("#inputSize").val());
 	settings.properties.freeSpaceBoolean = $("#inputFreeSpaceBoolean").prop("checked");
 	settings.properties.freeSpaceName = $("#inputFreeSpaceName").val();
@@ -49,6 +49,5 @@ function syncUIFormWithSettings(settings) {
 	$("#inputFreeSpaceName").val(settings.properties.freeSpaceName);
 	$("#inputFreeSpaceBoolean").prop("checked", settings.properties.freeSpaceBoolean);
 	$("#inputSize").val(settings.properties.size);
-	$("#inputContent").val(settings.properties.input);
 	$("#inputTitle").val(settings.properties.title);
 }
