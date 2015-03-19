@@ -1,0 +1,29 @@
+{
+  "name": "BingoGen",
+  "version": "0.0.1",
+  "homepage": "https://github.com/HopefulLlama/BingoGen",
+  "authors": [
+    "HopefulLlama <jonlaw10170@gmail.com>"
+  ],
+  "description": "A JavaScript only Bingo card generator.",
+  "main": "default.html",
+  "keywords": [
+    "bingogen",
+    "javascript"
+  ],
+  "license": "GNU",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "jquery-bs3Alert": "davesag/jquery-bs3Alert#~1.0.0",
+    "jquery": "~2.1.3",
+    "lz-string": "pieroxy/lz-string#~1.3.9"
+  }
+}
